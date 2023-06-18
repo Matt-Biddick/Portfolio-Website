@@ -4,13 +4,24 @@
     <link rel="icon" href="data:,">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link
+    rel="stylesheet" 
+    href="{{url_for('static', filename='main.css')}}"
+    ><title>Document</title>
 </head>
 <body>
-    <div>
-        <h1>Home Page</h1>
-        <p>Hello, {{name}}</p>
-    </div>
+    <img 
+    src="https://raw.githubusercontent.com/MariyaSha/SimpleGreetingApp/main/logo.png">
+    <br>
+    <form action="greet" method="post">
+        {% for message in get_flashed_messages() %}
+        <p>{{message}}</p>
+        {% endfor %}
+        <br>
+        <input type="text" name="name_input">
+        <br>
+        <input type="submit" value="GREET" id="greet">
+    </form>
     <script 
     type="text/javascript" 
     src="{{url_for('static', filename='index.js')}}"

@@ -1,26 +1,13 @@
-from flask import Blueprint, render_template, request, jsonify, redirect, url_for
+from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash
 
 views = Blueprint(__name__, "views")
 
 @views.route("/")
 def home():
-    return render_template("index.html", name="Matt")
+    flash("Hi there, what is your name?")
+    return render_template("index.html")
 
-@views.route("/profile")
-def profile():
-    args = request.args
-    name = args.get('name')
-    return render_template("index.html", name=name)
-
-@views.route("/json")
-def get_json():
-    return jsonify({'name': 'tim', 'coolness': '10'})
-
-@views.route("/data")
-def get_data():
-    data = request.json
-    return jsonify(data)
-
-@views.route("/go-to-home")
-def go_to_home():
-    return redirect(url_for("views.home"))
+@views.route("/greet", methods=["POST","GET"])
+def greet():
+    flash("Hi " + str(request.form['name_input']) + ", nice to meet you!")
+    return render_template("index.html")
