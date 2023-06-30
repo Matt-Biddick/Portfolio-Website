@@ -1,42 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  scroll-behavior: smooth !important;
+}
+
 body {
-    background-color: slategray;
-    text-align: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
 }
 
-p {
-    color: white;
-    font-family: Arial;
-    font-size: 1.2em;
-    margin: 20px;
+.container {
+  width: 100%;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
-img {
-    margin: 60px 0 30px 0;
-    width: 250;
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
 }
 
-input {
-    width: 300px;
-    height: 50px;
-    margin: 20px;
-    border: none;
-    border-radius: 10px;
-    font-family: Arial;
-    text-align: center;
-    font-size: 1.3em;
+section:nth-of-type(1) {
+  background-color: blue;
+  color: #fff;
 }
 
-input:focus {
-    border: solid 5px #00FFCE
+section:nth-of-type(2) {
+  background-color: red;
+  color: #fff;
 }
 
-#greet {
-    background-color: palevioletred;
-    color: white;
-    width: 200px;
+section:nth-of-type(3) {
+  background-color: green;
+  color: #fff;
 }
 
-#greet:hover {
-    background-color: mediumvioletred;
-    cursor: pointer
+section:nth-of-type(4) {
+  background-color: yellow;
+  color: #fff;
+}
+
+section:nth-of-type(5) {
+  background-color: pink;
+  color: #fff;
+}
+
+h1 {
+  font-size: 15em;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 36px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
 }
